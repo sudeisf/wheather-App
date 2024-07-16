@@ -21,25 +21,23 @@ function Card({ data }) {
     };
 
     return (
-        <div className="w-[20rem] rounded-xl shadow-lg bg-[#ffff] text-white hover:shadow-2xl">
+        <div className="w-[14rem] rounded-xl  bg-[#080808] text-white  shadow-lg mr-auto ml-auto mt-5 p-2">
+            <h1 className="pt-5  text-center text-xl font-mono capitalize  ">{moment().format("dddd")}</h1>
             <img 
                 src={chooser(data)} // Call the chooser function here
                 alt="Weather Icon" 
-                className="h-auto mr-auto ml-auto py-8"
+                className="h-auto mr-auto ml-auto py-8 drop-shadow-lg w-2/4 "
             />
-            <h4 className="text-xl font-thin w-30 text-left pl-16 font-mono">
+            <p className="text-center text-3xl">{data.main.temp}&deg;C</p>
+            <h4 className=" font-thin w-30 text-center p-2 font-mono">
                 Addis Abeba, {data.sys.country}
             </h4>
-            <div className="border-t-[0.001rem] w-3/4 mx-auto pb-8 mr-4">
-                <p className="text-[3rem] text-left">{Math.round(data.main.temp - 273)}&deg;C</p>
-                <p className="text-left font-mono capitalize text-stone-300 text-[1.3rem]">
-                    {data.weather[0].description}
-                </p>
-                <p className="text-[#d2ccccf4] text-lg text-left font-semibold">
-                    {new Date(data.sys.sunrise * 1000).toLocaleTimeString('en-IN')} | {data.sys.country} <br />
-                    {moment().format('dddd')} {moment().format('LL')}
-                </p>
+            <div className="flex gap-2 pb-5 text-left ml-4 mt-2">
+                <h1 className="text-xl text-center">{data.main.temp_max} &deg;C</h1><span className="text-2xl">/</span>
+                <h2 className="text-md text-center">{data.main.temp_min} &deg;C</h2>
+
             </div>
+           
         </div>
     );
 }
