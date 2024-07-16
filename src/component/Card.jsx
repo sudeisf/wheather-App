@@ -21,7 +21,7 @@ function Card({ data }) {
     };
 
     return (
-        <div className="w-[20rem] rounded-xl shadow-lg bg-[#c72267a8] text-white hover:shadow-2xl">
+        <div className="w-[20rem] rounded-xl shadow-lg bg-[#ffff] text-white hover:shadow-2xl">
             <img 
                 src={chooser(data)} // Call the chooser function here
                 alt="Weather Icon" 

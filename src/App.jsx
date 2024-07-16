@@ -10,52 +10,46 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_key = "e13ecdc32fb3523f8b1a68cdf0dde72b";
+  const React_API_Key = '7f5d99e25be05389a99ee06f131ffcdc';
+  const URL = `https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=${React_API_Key}`
 
   // Getting lat and lon
   useEffect(() => {
-    const handleSuccess = (position) => {
-      setLat(position.coords.latitude);
-      setLon(position.coords.longitude);
-      setLoading(false);
+    const fetchLocation = async () => {
+      try {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setLat(position.coords.latitude);
+          setLon(position.coords.longitude);
+        }, (error) => {
+          setError(error.message);
+        });
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
-    const handleError = (error) => {
-      setError(error.message);
-      setLoading(false);
-    };
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-    } else {
-      setError("Geolocation is not supported by this browser.");
-      setLoading(false);
-    }
-
-    // Cleanup function
-    return () => {
-      // Cleanup logic if any
-    };
+    fetchLocation();
   }, []);
 
   // Fetch weather data
   useEffect(() => {
-    if (lat && lon) {
-      const fetchWeather = async () => {
+    const fetchWeather = async () => {
+      if (lat && lon) {
         try {
           setLoading(true);
-          const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`);
-          setWeather(result.data);
+          const response = await axios.get(URL);
+          setWeather(response.data);
           setLoading(false);
-          console.log(result.data)
+          console.log(response.data)
         } catch (error) {
           setError(error.message);
           setLoading(false);
         }
-      };
-      fetchWeather();
-    }
-  }, [lat, lon, API_key]);
+      }
+    };
+
+    fetchWeather();
+  }, [lat, lon, React_API_Key]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -68,11 +62,7 @@ function App() {
   return (
     <div>
       <h1>Weather Forecast</h1>
-      {weather &&
-        <Card
-        data ={ weather }
-        />
-      }
+      {weather && <Card data={weather} />}
     </div>
   );
 }
