@@ -3,7 +3,7 @@ import { NavLink ,Outlet} from "react-router-dom";
 
 function NavBar() {
     return (
-        <div className="border-[0] w-fit p-5 flex  flex-col h-[700px] mt-5 ml-5 rounded-xl border-black gap-16 shadow-lg bg-white ">
+        <div className="border-[0] w-fit p-5 flex  flex-col h-[700px] mt-5 ml-5 rounded-xl border-black gap-16 shadow-md bg-white ">
             <div>
                 <img 
                   className="w-10 h-10 mr-auto ml-auto"
@@ -13,7 +13,7 @@ function NavBar() {
                 <ul className="flex  flex-col gap-5 cursor:pointer">
 
                 <NavLink to={'/weather'} className={({isActive})=>{
-                    return isActive ? 'text-red-400' : '';
+                    return isActive ? 'border-b-2 border-black ' : '';
                 }}>
                     <li className="flex flex-col text-sm gap-2 font-semibold text-center cursor-pointer">
                             <img 
@@ -54,7 +54,7 @@ function NavBar() {
                    
                 </ul>
             </div>
-            {/* <Outlet /> */}
+            
         </div>
     );
 }

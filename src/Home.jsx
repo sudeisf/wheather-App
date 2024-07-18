@@ -6,18 +6,18 @@ import { Outlet } from 'react-router-dom';
 function Home() {
  
   return (
-    <div className='flex flex-row'>
+    <div className='flex flex-row gap-5'>
       <div>
       <NavBar />
       </div>
 
-      <div className='w-full'>
+      <div className='w-full flex flex-col'>
 
         <div>
           <SearchBar />
         </div>
 
-        <div className='mt-5 ml-5'>
+        <div className='h-[630px] mt-3'>
           <Outlet/>
         </div>
 

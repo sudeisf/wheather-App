@@ -9,11 +9,17 @@ import CurrentWeatherCard from "../component/CurrentWeatherCard";
 function WeatherPage(){
     return (
         <>
-        <div>
+        <div className="flex h-[625px]"> 
+            <div className="w-3/5 flex flex-col gap-2">
                     <CurrentWeatherCard />
                     <TodaysForcast />
-                    <AirConditons />
-                    <SevenDaysForcast />      
+                    {/* <AirConditons /> */}
+            </div>
+            <div className="w-2/5">
+                <SevenDaysForcast />  
+            </div>
+                 
+                     
         </div>
            
         </>
