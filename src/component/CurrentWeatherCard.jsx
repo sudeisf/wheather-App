@@ -1,30 +1,15 @@
+import React from "react";
+import { useWeather } from "../useContext/WeatherContext";
+  function CurrentWeatherCard(){
+    const { weatherData , loading ,error} = useWeather();
 
-import { useEffect, useState } from "react";
-import {  getCurrentLocationWeather } from "../Service/CurrentData-api";
-export default function CurrentWeatherCard(){
-
-    const [weatherData, setWeatherData] = useState(null);
-    const [loading , setLoading ] =useState(null);
-    const [error, setError] = useState(null);
-
-    useEffect(() =>{
-        const feacthData = async () =>{
-            try{
-                const response = await getCurrentLocationWeather();
-                setWeatherData(response);
-            }catch(error){
-                setError(error)
-            }finally{
-                setLoading(false);
-            }
-        }
-
-        feacthData();
-
-    },[])
+  
 
     if(loading) return <div>loading...</div>
     if(error) return <div>{error}</div>
+
+    const {current , forecast }= weatherData;
+    const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].day : {};
 
     return (
         <>
@@ -32,11 +17,11 @@ export default function CurrentWeatherCard(){
            <div className=" flex justify-between rounded-xl drop-shadow-md h-2/6 pt-2 pl-5 p-5">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-1">
-                        <h1 className="text-4xl font-semibold">{weatherData.location.name}</h1>
+                        <h1 className="text-4xl font-semibold">{weatherData?.location.name}</h1>
                         <p className="text-sm font-sans font-medium">chance of rain: 0%</p>
                     </div>
                     <div>
-                        <h1 className="text-6xl font-bold font-sans">{weatherData.current.temp_c}&deg;</h1>
+                        <h1 className="text-6xl font-bold font-sans">{current?.temp_c}&deg;</h1>
                     </div>
                 </div>
 
@@ -48,3 +33,5 @@ export default function CurrentWeatherCard(){
         </>
     );
 }
+
+export default CurrentWeatherCard;

@@ -1,33 +1,16 @@
 import React from 'react'
-import { getWeatherForecast } from "../Service/TodayForcastData";
-import { useState , useEffect } from 'react';
+import { useWeather } from '../useContext/WeatherContext';
 
 
-export default function TodaysForcast(){
-    const [forecastData,setForecastData] = useState({});
-    const [loading, setLoading] = useState(null);
-    const [error,setError] = useState(null);
-
-
-    useEffect(() => {
-        const  fetchData = async () =>{
-            try{
-                const response = await getWeatherForecast();
-                setForecastData(response);
-                console.log(response,"this is it")
-                console.log(forecastData)
-            } catch(error){
-                setError(error);
-            }finally{
-                setLoading(false);
-            }
-        }
-        fetchData();
-    },[])
-  
+ function TodaysForcast(){
+    const { weatherData , loading , error} = useWeather();
+   
 
     if (loading) return <div>loading</div>
     if (error) return <div>{error}</div>
+
+    const { forecast }= weatherData;
+    const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].hour : {};
 
 
     return(
@@ -36,8 +19,8 @@ export default function TodaysForcast(){
                 <h1 className='uppercase pt-5 pl-5 pb-3 font-mono font-semibold'>today's forcast</h1>
                 <div className='w-full pl-5 pr-5 pb-5'>
                     <ul className='flex gap-3'>
-                        {forecastData.forecast &&
-                           forecastData.forecast.forecastday[0].hour.map((hour, index) => (
+                        {forecastDay &&
+                           forecastDay?.map((hour, index) => (
                             <li key={index} className=' flex flex-col  w-3/4 text-center  mr-auto ml-auto gap-2'>
                                 <h1 className='font-sans font-semibold'>{new Date(hour.time).toLocaleTimeString('en-US',{timeStyle:'short' ,hour12:true})}</h1>
                                 <img src={hour.condition.icon} alt="icon" className='w-16 h-16 ml-auto mr-auto' />
@@ -51,3 +34,4 @@ export default function TodaysForcast(){
         </>
     )
 }
+export default TodaysForcast;

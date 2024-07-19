@@ -1,34 +1,17 @@
+import React from "react";
 
-import { useEffect, useState } from "react"
-import { getData } from "../Service/helper-1"
-
-
-
-export default function AirConditions(){
-   const [weatherData, setWeatherData] = useState([]);
-   const [loading , setLoading] = useState(false);
-   const [error , setError] = useState(null);
-
-   useEffect(() => {
-    const  fetchData =  () =>{
-        try{
-            const response =  getData();
-            setWeatherData(response);
-            setLoading(false);
-        } catch(error){
-            setError(error);
-        }finally{
-            setLoading(false);
-        }
-    }
-    fetchData();
-},[])
+import { useWeather } from "../useContext/WeatherContext";
 
 
-if (loading) return <div>Loading...</div>
-if (error) return  <div>{error}</div>
+ function AirConditions(){
+    const { weatherData , loading , error} = useWeather();
 
 
+    if (loading) return <div>Loading...</div>
+    if (error) return  <div>{error}</div>
+
+    const {current , forecast }= weatherData;
+    const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].day : {};
 
     return(
         <>
@@ -43,12 +26,12 @@ if (error) return  <div>{error}</div>
                     
                         <div className="flex flex-col ">
                             <div className="flex gap-1 items-center ">
-                                <img src="/icon-lab/thermometer.svg" alt="icon" srcset="" className="w-6 h-6" />
+                                <img src="/icon-lab/thermometer.svg" alt="icon"  className="w-6 h-6" />
                                 <h1 className="capitalize font-medium">real feel</h1>
                             </div>
                             {
                                 weatherData && 
-                                <h1 className="font-bold text-2xl pl-5 ">{weatherData.current.feelslike_c}&deg;</h1>
+                                <h1 className="font-bold text-2xl pl-5 ">{current?.feelslike_c}&deg;</h1>
                             }
                             
                         </div>
@@ -59,7 +42,7 @@ if (error) return  <div>{error}</div>
                                 <h1 className="capitalize font-medium">wind speed</h1>
                             </div>
                             {weatherData &&
-                            <h1 className="font-bold text-2xl pl-5 ">{weatherData.current.wind_kph} Km/h</h1>
+                            <h1 className="font-bold text-2xl pl-5 ">{current?.wind_kph} Km/h</h1>
                         }
                         </div>
                     
@@ -71,7 +54,7 @@ if (error) return  <div>{error}</div>
                                 <h1 className="capitalize font-medium items-center">chance of rain</h1>
                             </div>
                             {weatherData && 
-                            <h1 className="font-bold text-2xl pl-5 ">{weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%</h1>
+                            <h1 className="font-bold text-2xl pl-5 ">{forecastDay?.daily_chance_of_rain}%</h1>
                             }
                         </div>
 
@@ -81,7 +64,7 @@ if (error) return  <div>{error}</div>
                                 <h1 className="capitalize font-semibold">uV index</h1>
                             </div>
                             {weatherData && 
-                            <h1 className="font-bold text-2xl pl-5 ">{weatherData.forecast.forecastday[0].day.uv}</h1>
+                            <h1 className="font-bold text-2xl pl-5 ">{forecastDay?.uv}</h1>
                         }
                         </div>
                 
@@ -92,3 +75,6 @@ if (error) return  <div>{error}</div>
         </>
     )
 }
+
+
+export default AirConditions;
