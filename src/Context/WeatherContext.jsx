@@ -1,6 +1,6 @@
 // src/context/WeatherContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getWeatherForecast } from '../Service/TodayForcastData';
+import { getWeatherForecast } from '../Service/WeatherApiService';
 
 const WeatherContext = createContext();
 

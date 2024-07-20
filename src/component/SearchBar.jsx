@@ -9,7 +9,7 @@ function SearchBar(){
             <input type="search"
             id="search"
              placeholder="Search for Cities"
-             className="border-[0] border-black rounded-lg w-3/5 h-11 shadow-md placeholder:text-black placeholder:p-2 font-medium focus:border-none p-2" />
+             className=" rounded-lg w-3/5 h-11 shadow-md placeholder:text-black placeholder:p-2 font-medium focus:border-none p-2" />
             </form>
 
         </div>

@@ -22,6 +22,7 @@ export const fetchData = async (lat, lon) => {
         return day;
       });
     }
+    console.log(forecastData);
     return forecastData;
   } catch (error) {
     console.error("There is some kind of issue:", error); 

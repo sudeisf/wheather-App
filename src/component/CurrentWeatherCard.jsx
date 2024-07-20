@@ -1,5 +1,5 @@
 import React from "react";
-import { useWeather } from "../useContext/WeatherContext";
+import { useWeather } from "../Context/WeatherContext.jsx";
   function CurrentWeatherCard(){
     const { weatherData , loading ,error} = useWeather();
 

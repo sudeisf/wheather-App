@@ -5,7 +5,8 @@ import AirConditons from '../component/AirConditions';
 import SevenDaysForcast from '../component/SevenDaysForcast';
 
 import CurrentWeatherCard from "../component/CurrentWeatherCard";
-import { WeatherProvider } from "../useContext/WeatherContext";
+import { WeatherProvider } from "../Context/WeatherContext";
+import { VisibilityProvider } from "../Context/visibilityContext";
 
 function WeatherPage(){
     return (
@@ -14,8 +15,11 @@ function WeatherPage(){
         <div className="flex h-[625px]"> 
             <div className="w-3/5 flex flex-col gap-2">
                 <CurrentWeatherCard />
-                <TodaysForcast />
-                <AirConditons />
+                <VisibilityProvider>
+                    <TodaysForcast />
+                    <AirConditons />
+                </VisibilityProvider>
+                
             </div>
 
             <div className="w-2/5">
