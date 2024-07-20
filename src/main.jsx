@@ -14,6 +14,10 @@ const router = createBrowserRouter([{
     {
       path: '/weather',
       element: <WeatherPage />
+    },
+    {
+      path: '/cities',
+      element: <WeatherPage />
     }
   ]
 }

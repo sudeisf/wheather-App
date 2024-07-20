@@ -13,7 +13,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
     const {current , forecast }= weatherData;
     const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].day : {};
-
+    const forcast_day = forecast.forecastday[0];
     return(
         <>
         <div className={` mt-2  rounded-xl  ${isVisible? 'bg-white h-fit shadow-md ' : "border-none"} `} >
@@ -74,7 +74,7 @@ import { useVisibility } from "../Context/visibilityContext";
                                 <h1 className="capitalize font-semibold">uV index</h1>
                             </div>
                             {weatherData && 
-                            <h1 className="font-semibold text-xl pl-5 ">{forecastDay?.uv}</h1>
+                            <h1 className="font-semibold text-xl pl-5 ">{current.uv}</h1>
                         }
                         </div>
                 </div>
@@ -82,42 +82,42 @@ import { useVisibility } from "../Context/visibilityContext";
                  <div className='grid grid-cols-2 grid-rows-2  gap-y-5 gap-x-5' >
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/sun.svg" alt="icon" srcset="" className="w-5 h-5"/>
-                                    <h1 className="capitalize font-semibold">uV index</h1>
+                                    <img src="/icon-lab/visibility.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <h1 className="capitalize font-semibold">visibility</h1>
                                 </div>
                                 {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 ">{forecastDay?.uv}</h1>
+                                <h1 className="font-semibold text-xl pl-5 ">{current.vis_km}Km</h1>
                             }
                             </div>
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/sun.svg" alt="icon" srcset="" className="w-5 h-5"/>
-                                    <h1 className="capitalize font-semibold">uV index</h1>
+                                    <img src="/icon-lab/humidity.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <h1 className="capitalize font-semibold">humidity</h1>
                                 </div>
                                 {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 ">{forecastDay?.uv}</h1>
+                                <h1 className="font-semibold text-xl pl-5 ">{current.humidity}%</h1>
                             }
                             </div>
 
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/sun.svg" alt="icon" srcset="" className="w-5 h-5"/>
-                                    <h1 className="capitalize font-semibold">uV index</h1>
+                                    <img src="/icon-lab/sunset.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <h1 className="capitalize font-semibold">sunset</h1>
                                 </div>
                                 {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 ">{forecastDay?.uv}</h1>
+                                <h1 className="font-semibold text-xl pl-5 ">{forcast_day?.astro.sunset}</h1>
                             }
                             </div>
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/sun.svg" alt="icon" srcset="" className="w-5 h-5"/>
-                                    <h1 className="capitalize font-semibold">uV index</h1>
+                                    <img src="/icon-lab/pressure.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <h1 className="capitalize font-semibold">pressure</h1>
                                 </div>
                                 {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 ">{forecastDay?.uv}</h1>
+                                <h1 className="font-semibold text-xl pl-5 ">{current.pressure_mb}hPa</h1>
                             }
                             </div>
                         </div>
