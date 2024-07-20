@@ -48,7 +48,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
                         <div className={`flex flex-col   rounded-xl ${ isVisible ? 'pl-5':'p-5  bg-white shadow-md'}`}>
                             <div className="flex gap-2 items-center">
-                                <img src="/icon-lab/wind.svg" alt="icon" srcset="" className="w-5 h-5" />
+                                <img src="/icon-lab/wind.svg" alt="icon"  className="w-5 h-5" />
                                 <h1 className="capitalize font-medium">wind speed</h1>
                             </div>
                             {weatherData &&
@@ -60,7 +60,7 @@ import { useVisibility } from "../Context/visibilityContext";
             
                     <div className={`flex flex-col rounded-xl ${ isVisible ? ' pl-5':'p-5  bg-white shadow-md'}`}>
                             <div className="flex gap-2 items-center">
-                                <img src="/icon-lab/raindrops.png" alt="icon" srcset="" className="w-5 h-5" />
+                                <img src="/icon-lab/raindrops.png" alt="icon"  className="w-5 h-5" />
                                 <h1 className="capitalize font-medium items-center">chance of rain</h1>
                             </div>
                             {weatherData && 
@@ -70,7 +70,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
                         <div className={`flex flex-col   rounded-xl ${ isVisible ? ' pb-3  pl-5':'p-5  bg-white shadow-md'}`}>
                             <div className="flex gap-2 items-center">
-                                <img src="/icon-lab/sun.svg" alt="icon" srcset="" className="w-5 h-5"/>
+                                <img src="/icon-lab/sun.svg" alt="icon"  className="w-5 h-5"/>
                                 <h1 className="capitalize font-semibold">uV index</h1>
                             </div>
                             {weatherData && 
@@ -82,7 +82,7 @@ import { useVisibility } from "../Context/visibilityContext";
                  <div className='grid grid-cols-2 grid-rows-2  gap-y-5 gap-x-5' >
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/visibility.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <img src="/icon-lab/visibility.png" alt="icon"  className="w-5 h-5"/>
                                     <h1 className="capitalize font-semibold">visibility</h1>
                                 </div>
                                 {weatherData && 
@@ -92,7 +92,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/humidity.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <img src="/icon-lab/humidity.png" alt="icon"  className="w-5 h-5"/>
                                     <h1 className="capitalize font-semibold">humidity</h1>
                                 </div>
                                 {weatherData && 
@@ -103,7 +103,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/sunset.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <img src="/icon-lab/sunset.png" alt="icon"  className="w-5 h-5"/>
                                     <h1 className="capitalize font-semibold">sunset</h1>
                                 </div>
                                 {weatherData && 
@@ -113,7 +113,7 @@ import { useVisibility } from "../Context/visibilityContext";
 
                             <div className="flex flex-col bg-white  p-5 rounded-xl shadow-md">
                                 <div className="flex gap-2 items-center">
-                                    <img src="/icon-lab/pressure.png" alt="icon" srcset="" className="w-5 h-5"/>
+                                    <img src="/icon-lab/pressure.png" alt="icon"  className="w-5 h-5"/>
                                     <h1 className="capitalize font-semibold">pressure</h1>
                                 </div>
                                 {weatherData && 
