@@ -4,6 +4,7 @@ import {createBrowserRouter, Router, RouterProvider} from 'react-router-dom'
 import WeatherPage from './pages/WeatherPage'
 import './index.css'
 import Home from './Home';
+import { VisibilityProvider } from './Context/visibilityContext'
 
 
 const router = createBrowserRouter([{
@@ -20,6 +21,8 @@ const router = createBrowserRouter([{
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <VisibilityProvider>
+      <RouterProvider router={router} />
+    </VisibilityProvider>
   </React.StrictMode>,
 )

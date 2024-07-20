@@ -14,11 +14,10 @@ function WeatherPage(){
         <WeatherProvider>
         <div className="flex h-[625px]"> 
             <div className="w-3/5 flex flex-col gap-2">
-                <CurrentWeatherCard />
-                <VisibilityProvider>
+                    <CurrentWeatherCard />
                     <TodaysForcast />
                     <AirConditons />
-                </VisibilityProvider>
+                
                 
             </div>
 

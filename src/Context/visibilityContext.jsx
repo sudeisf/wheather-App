@@ -6,7 +6,7 @@ export const useVisibility = () => {
   return useContext(VisibilityContext);
 };
 
-export const VisibilityProvider = ({ children }) => {
+export const VisibilityProvider =  ({ children }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const toggleClick = () => {
