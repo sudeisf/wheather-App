@@ -11,14 +11,16 @@ export const WeatherProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const response = await getWeatherForecast();
                 setWeatherData(response);
+                setLoading(false);
+
             } catch (error) {
                 setError(error.message);
-            } finally {
-                setLoading(false);
-            }
+                setLoading(false)
+            } 
         };
         fetchData();
     }, []);

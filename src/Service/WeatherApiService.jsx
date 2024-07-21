@@ -3,7 +3,7 @@
 import axios from "axios";
 import {filterHours} from '../utils/hourFilter';
 
-const API_KEY = 'f12e67f58ada4727b57201316241407'; 
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY; 
 
 export const fetchData = async (lat, lon) => {
   try {

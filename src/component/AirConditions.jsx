@@ -23,7 +23,7 @@ import { useVisibility } from "../Context/visibilityContext";
                     <h1 className="uppercase font-bold font-mono ">air conditions</h1>
                     <button 
                         onClick={toggleClick}
-                        className="bg-cyan-500 text-white capitalize rounded-2xl px-4 py-1 text-[.8rem] font-mono shadow-md ">
+                        className="bg-[#29aae3] text-white capitalize rounded-2xl px-4 py-1 text-[.8rem] font-mono shadow-md ">
                         see more
                     </button>
             </div>

@@ -5,6 +5,7 @@ import WeatherPage from './pages/WeatherPage'
 import './index.css'
 import Home from './Home';
 import { VisibilityProvider } from './Context/visibilityContext'
+import Cities from './pages/Cities'
 
 
 const router = createBrowserRouter([{
@@ -17,7 +18,7 @@ const router = createBrowserRouter([{
     },
     {
       path: '/cities',
-      element: <WeatherPage />
+      element: <Cities />
     }
   ]
 }

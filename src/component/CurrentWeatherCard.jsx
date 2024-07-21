@@ -14,14 +14,14 @@ import { useWeather } from "../Context/WeatherContext.jsx";
     return (
         <>
            {weatherData && 
-           <div className=" flex justify-between rounded-xl drop-shadow-md h-2/6 pt-2 pl-5 p-5">
+           <div className=" flex justify-between rounded-xl drop-shadow-md h-2/6 pt-4 pl-5 p-5">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-1">
-                        <h1 className="text-4xl font-semibold">{weatherData?.location.name}</h1>
+                        <h1 className="text-4xl font-semibold font-rubik text-[#6f59a4] ">{weatherData?.location.name}</h1>
                         <p className="text-sm font-sans font-medium">chance of rain: 0%</p>
                     </div>
                     <div>
-                        <h1 className="text-6xl font-bold font-sans">{current?.temp_c}&deg;</h1>
+                        <h1 className="text-6xl font-bold font-rubik text-[#6f59a4] ">{current?.temp_c}&deg;</h1>
                     </div>
                 </div>
 

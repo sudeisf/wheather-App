@@ -36,7 +36,7 @@ function SevenDaysForcast(){
                 </div>
            </div>
             
-           <div className="bg-white w-[90%] ml-auto mr-auto rounded-xl shadow-md p-5 ">
+           <div className="bg-[#ffffffe1] w-[90%] ml-auto mr-auto rounded-xl shadow-md p-5 ">
                <h1 className="uppercase font-mono font-semibold pl-10 py-2">7 day's forcast</h1>
                <div>
                   <ul className="flex flex-col gap-4">

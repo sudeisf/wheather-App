@@ -15,7 +15,7 @@ import { useVisibility } from '../Context/visibilityContext';
 
     return(
         <>
-           <div className='bg-white flex flex-col   rounded-lg shadow-md h-2/6 ' style={{display : isVisible ? 'block' : 'none'}}>
+           <div className='bg-white flex flex-col   rounded-lg shadow-md h-2/6  ' style={{display : isVisible ? 'block' : 'none'}}>
                 <h1 className='uppercase pt-5 pl-5 pb-3 font-mono font-semibold'>today's forcast</h1>
                 <div className='w-full pl-5 pr-5 pb-5'>
                     <ul className='flex gap-3'>
