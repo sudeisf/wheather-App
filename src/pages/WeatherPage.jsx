@@ -22,7 +22,7 @@ function WeatherPageContent(){
     
     return (
         <>
-        <div className="flex h-[625px] relative top-[-3.5rem]"> 
+        <div className="flex h-[625px] mt-5"> 
             <div className="w-3/5 flex flex-col gap-2">
                     <CurrentWeatherCard />
                     <TodaysForcast />

@@ -19,16 +19,16 @@ function SevenDaysForcast(){
     return(
         <>
             <div className="flex flex-col gap-2">
-            <div className={`bg-white flex flex-col   rounded-lg shadow-md h-2/6  w-[90%] ml-auto mr-auto p-2 `} style={{display : !isVisible ? 'block' : 'none'}} >
-                <h1 className='uppercase pt-5 pl-5 pb-3 font-mono font-semibold'>today's forcast</h1>
+            <div className={`bg-[#202b3b] flex flex-col   rounded-lg shadow-md h-2/6  w-[90%] ml-auto mr-auto p-2 `} style={{display : !isVisible ? 'block' : 'none'}} >
+                <h1 className='uppercase pt-5 pl-5 pb-3 font-mono font-semibold text-[#9399a2]'>today's forcast</h1>
                 <div className='w-full pl-5 pr-5 pb-5'>
                     <ul className='flex gap-3'>
                         {forecastDay_One &&
                            forecastDay_One?.filter((_, index) => index < 3).map((hour, index) => (
                             <li key={index} className={` flex flex-col  w-3/4 text-center  mr-auto ml-auto gap-2 ${index < 2  ? 'border-r-[1px]' : ''}`}>
-                                <h1 className='font-sans font-semibold'>{new Date(hour.time).toLocaleTimeString('en-US',{timeStyle:'short' ,hour12:true})}</h1>
+                                <h1 className='font-sans font-semibold text-[#9399a2]'>{new Date(hour.time).toLocaleTimeString('en-US',{timeStyle:'short' ,hour12:true})}</h1>
                                 <img src={hour.condition.icon} alt="icon" className='w-16 h-16 ml-auto mr-auto' />
-                                <p className='font-bold font-sans text-lg'>{hour.temp_c}&deg;C</p>
+                                <p className='font-bold font-sans text-lg text-white'>{hour.temp_c}&deg;C</p>
                             </li>
                         ))
                         }
@@ -36,16 +36,16 @@ function SevenDaysForcast(){
                 </div>
            </div>
             
-           <div className="bg-[#ffffffe1] w-[90%] ml-auto mr-auto rounded-xl shadow-md p-5 ">
-               <h1 className="uppercase font-mono font-semibold pl-10 py-2">7 day's forcast</h1>
+           <div className="bg-[#202b3b] w-[90%] ml-auto mr-auto rounded-3xl shadow-md p-5 ">
+               <h1 className="uppercase font-mono font-semibold w-[90%] ml-auto mr-auto py-2 text-[#9399a2]">7 day's forcast</h1>
                <div>
                   <ul className="flex flex-col gap-4">
                      {
                       forecastDay.map((day , index)=>(
-                        <li key={index} className={`flex items-center mr-auto ml-auto justify-around  ${!isVisible? 'py-[0.035rem] w-4/5': 'py-[0.1rem] w-[95%]'}  ${index < 6  ? 'border-b-[1px]' : ''}`}>
-                            <p className="font-mono capitalize text-md ">{days[new Date(day.date).getDay()]}</p>
+                        <li key={index} className={`flex items-center mr-auto ml-auto justify-between ${!isVisible? 'py-[0.035rem] w-4/5': 'py-[0.1rem] w-[90%]'}  ${index < 6  ? 'border-b-[1px] border-[#9399a2]' : ''}`}>
+                            <p className="font-rubik capitalize text-md text-[#9399a2]">{days[new Date(day.date).getDay()]}</p>
                             <img src={day.day.condition.icon} alt="icon" className={`${!isVisible? "w-8 h-8" : '' }`} />
-                            <p> <span className="font-mono font-bold text-md">{day.day.maxtemp_c}</span> / <span className="text-sm font-mono font-normal">{day.day.mintemp_c}</span></p>
+                            <p> <span className="font-rubik font-bold text-md text-white">{day.day.maxtemp_c}</span> <span className="text-[#9399a2]">/</span><span className="text-sm font-mono font-normal text-[#9399a2]">{day.day.mintemp_c}</span></p>
                         </li>
                       ))
                      }

@@ -3,12 +3,12 @@ import './App.css';
 import NavBar from './component/NavBar';
 import SearchBar from './component/SearchBar';
 import { Outlet } from 'react-router-dom';
-import TopBar from './component/TopBar';
+
 function Home() {
  
   return (
       <>
-      <TopBar />
+
       <div className='flex flex-row gap-5'>
       <div>
       <NavBar />
@@ -16,11 +16,11 @@ function Home() {
 
       <div className='w-full flex flex-col'>
 
-        <div>
+        <div className=''>
           <SearchBar />
         </div>
 
-        <div className='h-[630px] mt-3'>
+        <div className='h-[630px] relative top-[-1rem]'>
           <Outlet/>
         </div>
 
