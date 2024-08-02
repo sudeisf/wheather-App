@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useWeather } from "../Context/WeatherContext.jsx";
   function CurrentWeatherCard(){
-    const { weatherData , loading ,error} = useWeather();
+    const { weatherData ,weatherTwo, loading ,error} = useWeather();
 
-  
+    const dataHandle = ()=>{
+        console.log(JSON.stringify(weatherTwo));
+    }
 
     if(loading) return <div>loading...</div>
     if(error) return <div>{error}</div>
 
     const {current , forecast }= weatherData;
-    const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].day : {};
+    // const forecastDay = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].day : {};
 
     return (
         <>
@@ -24,6 +26,9 @@ import { useWeather } from "../Context/WeatherContext.jsx";
                         <h1 className="text-6xl font-bold font-rubik text-white
                          ">{current?.temp_c}&deg;</h1>
                     </div>
+                    <button onClick={dataHandle}>
+                        get data
+                    </button>
                 </div>
 
                 <div className="pl-5 pr-5">

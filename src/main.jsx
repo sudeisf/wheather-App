@@ -6,6 +6,8 @@ import './index.css'
 import Home from './Home';
 import { VisibilityProvider } from './Context/visibilityContext'
 import Cities from './pages/Cities'
+import { SuggestionProvider } from './Context/suggestionContext'
+
 
 
 const router = createBrowserRouter([{
@@ -19,6 +21,9 @@ const router = createBrowserRouter([{
     {
       path: '/cities',
       element: <Cities />
+    },{
+      index : true,
+      element: <WeatherPage />
     }
   ]
 }
@@ -27,7 +32,9 @@ const router = createBrowserRouter([{
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <VisibilityProvider>
-      <RouterProvider router={router} />
+      <SuggestionProvider>
+        <RouterProvider router={router} />
+      </SuggestionProvider>
     </VisibilityProvider>
   </React.StrictMode>,
 )

@@ -3,6 +3,8 @@ import './App.css';
 import NavBar from './component/NavBar';
 import SearchBar from './component/SearchBar';
 import { Outlet } from 'react-router-dom';
+import { QueryProvider } from './Context/QueryContext';
+import { SuggestionProvider } from './Context/suggestionContext';
 
 function Home() {
  
@@ -16,8 +18,10 @@ function Home() {
 
       <div className='w-full flex flex-col'>
 
-        <div className=''>
-          <SearchBar />
+        <div >
+          <QueryProvider>
+                <SearchBar />
+          </QueryProvider>
         </div>
 
         <div className='h-[630px] relative top-[-1rem]'>

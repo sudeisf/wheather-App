@@ -1,4 +1,14 @@
+
+
+import { useEffect, useState } from "react";
+
+
+
+
 export default function SideDetail(){
+  
+    
+    
     return (
         <div className="flex flex-col gap-2 w-1/2 pl-5 pr-5 *:w-[90%] *:ml-auto *:mr-auto">
             <div className="flex justify-between pb-5 border-b-2 border-[#a9a5a5]">
