@@ -1,12 +1,11 @@
 // src/context/WeatherContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getWeatherForecast } from '../Service/WeatherApiService';
 import { getData } from '../Service/data';
+
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
     const [weatherData, setWeatherData] = useState(null);
-    const [weatherTwo , setWeatherTwo] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -14,22 +13,23 @@ export const WeatherProvider = ({ children }) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response1 = await  getData();
-                const response = await getWeatherForecast();
-                setWeatherTwo(response1);
+                const response = await getData();
+                if (!response) {
+                    throw new Error('No data received from API');
+                }
                 setWeatherData(response);
                 setLoading(false);
-
             } catch (error) {
-                setError(error.message);
-                setLoading(false)
+                console.error('Error fetching weather data:', error);
+                setError(error.message || 'Failed to fetch weather data');
+                setLoading(false);
             } 
         };
         fetchData();
     }, []);
 
     return (
-        <WeatherContext.Provider value={{ weatherData,weatherTwo, loading, error }}>
+        <WeatherContext.Provider value={{ weatherData, loading, error }}>
             {children}
         </WeatherContext.Provider>
     );

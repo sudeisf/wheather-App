@@ -1,24 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useWeather } from "../Context/WeatherContext.jsx";
 
 function CurrentWeatherCard(){
-    const { weatherData, weatherTwo, loading, error } = useWeather();
-
-    const dataHandle = () => {
-        console.log(JSON.stringify(weatherTwo));
-    }
+    const { weatherData, loading, error } = useWeather();
 
     if(loading) return <div>loading...</div>
     if(error) return <div>{error}</div>
-    if(!weatherData || !weatherTwo) return <div>No weather data available</div>
+    if(!weatherData) return <div>No weather data available</div>
 
     // Get the current weather data from Tomorrow.io API
-    const currentWeather = weatherTwo?.timelines?.hourly?.[0]?.values || {};
-    const location = weatherTwo?.location || {};
+    const currentWeather = weatherData?.timelines?.hourly?.[0]?.values || {};
+    const location = weatherData?.location || {};
 
     return (
         <>
-           {weatherData && 
            <div className="flex justify-between rounded-xl drop-shadow-md h-2/6 pt-4 pl-5 p-5">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-1">
@@ -28,15 +23,12 @@ function CurrentWeatherCard(){
                     <div>
                         <h1 className="text-6xl font-bold font-rubik text-white">{currentWeather.temperature || 0}&deg;</h1>
                     </div>
-                    <button onClick={dataHandle}>
-                        get data
-                    </button>
                 </div>
 
                 <div className="pl-5 pr-5">
                     <img src={`/weather-icons/day/${currentWeather.weatherCode || '01d'}.svg`} alt="icon" className="w-40 h-40 drop-shadow-xl" />
                 </div>
-            </div>}
+            </div>
         </>
     );
 }
