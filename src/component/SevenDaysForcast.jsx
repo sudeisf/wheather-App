@@ -12,13 +12,14 @@ function SevenDaysForcast(){
 
     if (loading) return <div>Loading...</div>
     if (error) return  <div>{error}</div>
+    if (!weatherData || !weatherTwo) return <div>No weather data available</div>
 
 
-    const {timelines}= weatherTwo;
-    const {forecast }= weatherData;
-    const forecastDay = forecast && forecast.forecastday;
-    const forecastDay_One = forecast && forecast.forecastday && forecast.forecastday[0] ? forecast.forecastday[0].hour : {};
-    const newForecast = timelines.daily;
+    const {timelines} = weatherTwo;
+    const {forecast} = weatherData || {};
+    const forecastDay = forecast?.forecastday;
+    const forecastDay_One = forecast?.forecastday?.[0]?.hour || [];
+    const newForecast = timelines?.daily || [];
 
     const getClassName = (index) => index < 6 ? "b-b-2" : "";
     return(

@@ -12,23 +12,10 @@ function Home() {
       <>
 
       <div className='flex flex-row gap-5'>
-      <div>
-      <NavBar />
-      </div>
-
-      <div className='w-full flex flex-col'>
-
-        <div >
-          <QueryProvider>
-                <SearchBar />
-          </QueryProvider>
-        </div>
-
-        <div className='h-[630px] relative top-[-1rem]'>
+        <div className='h-[630px] w-[1250px] mx-auto relative top-[-1rem]'>
           <Outlet/>
         </div>
 
-      </div>
      
     
     </div>

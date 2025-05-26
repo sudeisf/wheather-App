@@ -21,22 +21,19 @@ function WeatherPageContent(){
     }
     
     return (
-        <>
-        <div className="flex h-[625px] mt-5"> 
-            <div className="w-3/5 flex flex-col gap-2">
+        <div className="container mx-auto px-4 py-6 mt-4">
+            <div className="flex flex-col lg:flex-row gap-6"> 
+                <div className="w-full lg:w-3/5 flex flex-col gap-4">
                     <CurrentWeatherCard />
                     <TodaysForcast />
                     <AirConditons />
+                </div>
+
+                <div className="w-full lg:w-2/5">
+                    <SevenDaysForcast />  
+                </div>         
             </div>
-
-            <div className="w-2/5">
-                <SevenDaysForcast />  
-            </div>         
         </div>
-
-      
-           
-        </>
     );
 
 }
