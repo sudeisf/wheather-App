@@ -45,13 +45,39 @@ npx tailwindcss init -p
 
 ## API Setup
 
-1. Sign up for a free API key at [WeatherAPI.com](https://www.weatherapi.com/)
-2. The free tier includes:
-   - 1,000,000 calls per month
+### Tomorrow.io API
+1. Sign up for a free API key at [Tomorrow.io](https://www.tomorrow.io/)
+2. Create a `.env` file in the root directory and add your Tomorrow.io API key:
+```env
+VITE_TOMORROW_API_KEY=your_tomorrow_io_api_key_here
+```
+
+3. The free tier includes:
+   - 1000 calls per day
    - Real-time weather
-   - 3-day forecasts
+   - 5-day forecasts
    - Weather alerts
    - Air quality data
+
+### BigDataCloud API (for Reverse Geocoding)
+1. Sign up for a free API key at [BigDataCloud](https://www.bigdatacloud.com/)
+2. Add your BigDataCloud API key to the `.env` file:
+```env
+VITE_BIGDATACLOUD_API_KEY=your_bigdatacloud_api_key_here
+```
+
+3. The free tier includes:
+   - 10,000 requests per month
+   - Reverse geocoding
+   - Location data
+
+### Complete .env File Example
+```env
+VITE_TOMORROW_API_KEY=your_tomorrow_io_api_key_here
+VITE_BIGDATACLOUD_API_KEY=your_bigdatacloud_api_key_here
+```
+
+Note: Make sure to replace `your_tomorrow_io_api_key_here` and `your_bigdatacloud_api_key_here` with your actual API keys. Never commit your `.env` file to version control.
 
 ## Project Structure
 

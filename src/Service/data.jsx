@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_key = 'kdnNQE8yIOjd1jrg64GVxwoLo9suG9Ft';
+const VITE_TOMORROW_API_KEY = import.meta.env.VITE_TOMORROW_API_KEY ;
 
 export const fData = async (location, lat, lon) => {
     try {
