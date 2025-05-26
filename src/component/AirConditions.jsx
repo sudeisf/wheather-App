@@ -20,10 +20,10 @@ function AirConditions(){
     if (error) return <div>{error}</div>
     if (!weatherData) return <div>No weather data available</div>
 
-    const {current, forecast} = weatherData;
-    const forecastDay = forecast?.forecastday?.[0]?.day || {};
-    const forcast_day = forecast?.forecastday?.[0] || {};
-    
+    // Get current weather data from Tomorrow.io API
+    const currentWeather = weatherData?.timelines?.hourly?.[0]?.values || {};
+    const dailyForecast = weatherData?.timelines?.daily?.[0]?.values || {};
+
     return(
         <>
         <div className={`mt-2 rounded-xl ${isVisible ? 'bg-[#202b3b] h-fit shadow-md' : "border-none"}`}>
@@ -46,7 +46,7 @@ function AirConditions(){
                             <h1 className="capitalize font-medium text-[#9399a2]">real feel</h1>
                         </div>
                         {weatherData && 
-                            <h1 className="font-semibold text-xl pl-5 text-white">{current?.feelslike_c}&deg;</h1>
+                            <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.temperatureApparent || 0}&deg;</h1>
                         }
                     </div>
 
@@ -56,7 +56,7 @@ function AirConditions(){
                             <h1 className="capitalize font-medium text-[#9399a2]">wind speed</h1>
                         </div>
                         {weatherData &&
-                            <h1 className="font-semibold text-xl pl-5 text-white">{current?.wind_kph} Km/h</h1>
+                            <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.windSpeed || 0} Km/h</h1>
                         }
                     </div>
 
@@ -66,7 +66,7 @@ function AirConditions(){
                             <h1 className="capitalize font-medium items-center text-[#9399a2]">chance of rain</h1>
                         </div>
                         {weatherData && 
-                            <h1 className="font-semibold text-xl pl-5 text-white">{forecastDay?.daily_chance_of_rain}%</h1>
+                            <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.precipitationProbability || 0}%</h1>
                         }
                     </div>
 
@@ -76,7 +76,7 @@ function AirConditions(){
                             <h1 className="capitalize font-semibold text-[#9399a2]">uV index</h1>
                         </div>
                         {weatherData && 
-                            <h1 className="font-semibold text-xl pl-5 text-white">{current.uv}</h1>
+                            <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.uvIndex || 0}</h1>
                         }
                     </div>
                 </div>
@@ -89,7 +89,7 @@ function AirConditions(){
                                 <h1 className="capitalize font-semibold text-[#9399a2]">visibility</h1>
                             </div>
                             {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 text-white">{current.vis_km}Km</h1>
+                                <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.visibility || 0}Km</h1>
                             }
                         </div>
 
@@ -99,7 +99,7 @@ function AirConditions(){
                                 <h1 className="capitalize font-semibold text-[#9399a2]">humidity</h1>
                             </div>
                             {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 text-white">{current.humidity}%</h1>
+                                <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.humidity || 0}%</h1>
                             }
                         </div>
 
@@ -109,7 +109,7 @@ function AirConditions(){
                                 <h1 className="capitalize font-semibold text-[#9399a2]">sunset</h1>
                             </div>
                             {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 text-white">{forcast_day?.astro.sunset}</h1>
+                                <h1 className="font-semibold text-xl pl-5 text-white">{dailyForecast.sunsetTime || 'N/A'}</h1>
                             }
                         </div>
 
@@ -119,7 +119,7 @@ function AirConditions(){
                                 <h1 className="capitalize font-semibold text-[#9399a2]">pressure</h1>
                             </div>
                             {weatherData && 
-                                <h1 className="font-semibold text-xl pl-5 text-white">{current.pressure_mb}hPa</h1>
+                                <h1 className="font-semibold text-xl pl-5 text-white">{currentWeather.pressureSurfaceLevel || 0}hPa</h1>
                             }
                         </div>
                     </div>
