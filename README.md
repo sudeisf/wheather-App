@@ -2,6 +2,59 @@
 
 A modern, responsive weather application built with React that provides real-time weather information and forecasts.
 
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- A Weather API key (We use WeatherAPI.com)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd weather-App
+```
+
+2. Install all required dependencies:
+```bash
+npm install react react-dom
+npm install react-router-dom
+npm install axios
+npm install moment
+npm install lucide-react
+npm install tailwindcss postcss autoprefixer
+npm install @vitejs/plugin-react
+npm install vite
+```
+
+Or simply run:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory and add your Weather API key:
+```env
+VITE_WEATHER_API_KEY=your_api_key_here
+```
+
+4. Initialize Tailwind CSS:
+```bash
+npx tailwindcss init -p
+```
+
+## API Setup
+
+1. Sign up for a free API key at [WeatherAPI.com](https://www.weatherapi.com/)
+2. The free tier includes:
+   - 1,000,000 calls per month
+   - Real-time weather
+   - 3-day forecasts
+   - Weather alerts
+   - Air quality data
+
+## Project Structure
+
 ## Features
 
 ### Current Weather Display
