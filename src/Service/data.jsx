@@ -3,7 +3,7 @@ const VITE_TOMORROW_API_KEY = import.meta.env.VITE_TOMORROW_API_KEY ;
 
 export const fData = async (location, lat, lon) => {
     try {
-        const res = await axios.get(`https://api.tomorrow.io/v4/weather/forecast?location=${location}&apikey=${API_key}`);
+        const res = await axios.get(`https://api.tomorrow.io/v4/weather/forecast?location=${location}&apikey=${VITE_TOMORROW_API_KEY}`);
         const geocodingResponse = await axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
         console.log(res.data);
         return res.data;
