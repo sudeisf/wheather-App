@@ -147,6 +147,10 @@ Note: Make sure to replace `your_tomorrow_io_api_key_here` and `your_bigdataclou
 - [ ] Add weather alerts
 - [ ] Include weather maps
 - [ ] Add weather history
+## Screenshots 
+
+![Screenshot of wheather page](./images/screen-one.png)
+![Screenshot of wheather page when you click more](./images/screen-two.png)
 
 ## Contributing
 
